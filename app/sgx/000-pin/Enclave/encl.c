@@ -15,4 +15,23 @@ int ecall_dummy(int i)
 
 /* =========================== START SOLUTION =========================== */
 
+
+int ecall_get_secret(int *secret_pt) {
+  int i, rv;
+
+  for(i=0; i<3; i++) {
+    ocall_get_pin(&rv);
+
+    if(rv == super_secret_pin) {
+      *secret_pt = super_secret_constant;
+      return 1;
+    }
+  }
+
+  super_secret_constant = 0;
+  super_secret_pin = 0;
+
+  return 0;
+}
+
 /* ============================ END SOLUTION ============================ */

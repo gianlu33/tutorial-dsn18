@@ -16,7 +16,7 @@ int ocall_get_pin(void)
 {
     int pin = 0;
     printf("enter PIN code > ");
-    scanf("%d", &pin);    
+    scanf("%d", &pin);
     return pin;
 }
 
@@ -37,7 +37,7 @@ int main( int argc, char **argv )
 {
     sgx_enclave_id_t eid = create_enclave();
     int rv = 1, secret = 0;
-    
+
     /* ---------------------------------------------------------------------- */
     info_event("calling enclave...");
 
@@ -45,6 +45,7 @@ int main( int argc, char **argv )
     info("ecall_dummy(1) enclave entry point returned %d", rv);
 
     /* =========================== START SOLUTION =========================== */
+    SGX_ASSERT(ecall_get_secret(eid, &rv, &secret));
     info("ecall_get_secret enclave entry point returned %d (secret 0x%x)",
         rv, secret);
     /* ============================ END SOLUTION ============================ */
