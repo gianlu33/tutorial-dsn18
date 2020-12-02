@@ -20,8 +20,7 @@ int can_socket = -1;
  *
  * $ sancus-crypto --key 0b7bf3ae40880a8be430d0da34fb76f0 --gen-sm-key foo --c-array main.elf
  */
-const uint8_t key[SPONGENT_KEY_SIZE] = {0x05, 0x41, 0x87, 0x10, 0xff, 0xa4, 0x83, 0xc1,
-                                        0x2e, 0xe2, 0xda, 0x82, 0x81, 0x36, 0xb7, 0x6b};
+const uint8_t key[SPONGENT_KEY_SIZE] = { 0xe8, 0xa6, 0xdf, 0xca, 0x8d, 0x21, 0xaf, 0xb3, 0x2b, 0x44, 0xfd, 0xe6, 0x12, 0xe2, 0x3c, 0x35};
 
 int main( int argc, char **argv )
 {
@@ -37,7 +36,7 @@ int main( int argc, char **argv )
     /* ---------------------------------------------------------------------- */
     info_event("remote attestation challenge");
     printf("enter attesation challenge (64-bit number) > ");
-    scanf("%llu", &challenge);    
+    scanf("%llu", &challenge);
     ASSERT( can_send(can_socket, CAN_ATTEST_ID, (uint8_t*) &challenge, sizeof(uint64_t)) > 0 );
 
     /* ---------------------------------------------------------------------- */

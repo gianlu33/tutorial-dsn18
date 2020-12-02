@@ -39,12 +39,13 @@ int main()
     /* ---------------------------------------------------------------------- */
     pr_info("calling into foo SM for MAC over attestation nonce...");
     /* =========================== START SOLUTION =========================== */
+    ASSERT( attest_foo(msg, can_msg_len, mac) );
     /* ============================ END SOLUTION ============================ */
     dump_buf(mac, SANCUS_TAG_SIZE, "MAC");
 
     /* ---------------------------------------------------------------------- */
     pr_info("replying with MAC(nonce) attestation CAN message...");
-    can_msg_len = 
+    can_msg_len =
     ican_send(&msp_ican, CAN_ATTEST_ID, &mac[0], CAN_PAYLOAD_SIZE, /*block=*/1);
     for (i=0; i < CAN_SEND_DELAY; i++);
     for (i=0; i < CAN_SEND_DELAY; i++);

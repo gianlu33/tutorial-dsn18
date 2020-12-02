@@ -71,7 +71,6 @@ int main( int argc, char **argv )
         info("OK   : remote attestation succeeded!");
     else
         info("FAIL : remote attestation failed!");
-
     /* ---------------------------------------------------------------------- */
     can_close(can_socket);
 
