@@ -57,7 +57,7 @@ int main()
 
         /* ---------------------------------------------------------------------- */
         pr_info("replying with MAC(nonce) attestation CAN message...");
-        can_msg_len = 
+        can_msg_len =
         ican_send(&msp_ican, CAN_ATTEST_ID, (uint8_t*) &btn, sizeof(uint16_t), /*block=*/1);
         for (i=0; i < CAN_SEND_DELAY; i++);
         for (i=0; i < CAN_SEND_DELAY; i++);
